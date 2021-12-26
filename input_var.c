@@ -6,40 +6,44 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:08:41 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 01:35:11 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/26 21:45:36 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-
-void	ft_terminate(int *arr)
+void	ft_delete(void *num)
 {
-	free(arr);
+	free(num);
+}
+
+void	ft_terminate(t_list **stack_a)
+{
+	if (*stack_a)
+		ft_lstclear(stack_a, ft_delete);
+	free(stack_a);
 	write(1, "Error", 5);
 	exit (0);
 }
 
-int		*input_handler(int argc, char **argv)
+t_list	**input_handler(int argc, char **argv)
 {
-	t_list	*stack_a;
-	int 	*num_int;
+	t_list	**stack_a = NULL;
 	int		i;
 
 	i = 1;
-	if (argc <= 1) // count
+	if (argc <= 1)
 	{
 		write(1, "Error", 5);
 		exit (0);
 	}
-	// arr = ft_calloc((argc - 1), sizeof(int)); // alocating array of ints
+	stack_a = malloc(sizeof(t_list *));
 	while (argv[i])
 	{
-		if (confirm_add(argv[i], stack_a, num_int))
+		if (ft_confirm_add(argv[i], stack_a))
 			i++;
 		else
-			ft_terminate(arr);
+			ft_terminate(stack_a);
 	}
-	return(arr);
+	return(stack_a);
 }

@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/20 23:46:55 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/26 21:16:57 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ typedef struct number
 }number;
 
 int		main(int argv, char **args);
-int		confirm_add(char *num, int *arr, int i);
+void	ft_putnbr_tr(void *content);
+int		ft_confirm_add(char *num, t_list **stack_a);
 int		valid_num_check(char *num);
-int		ft_unused_check(int *arr, int num, int max);
-int		*input_handler(int argc, char **argv);
-void	ft_terminate(int *arr);
+int		ft_unused_check(t_list *lst, int num, int *address);
+t_list	**input_handler(int argc, char **argv);
+void	ft_delete(void *num);
+void	ft_terminate(t_list **stack_a);
 
 #endif

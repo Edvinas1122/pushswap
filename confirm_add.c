@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:30:45 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 01:37:08 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/26 21:07:59 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,16 @@
 	functions to check errors 
 */
 
-int		ft_unused_check(int *arr, int num, int max)
+int		ft_unused_check(t_list *lst, int num, int *address)
 {
-	int	i;
+	int	*comp;
 
-	i = 0;
-	while (arr[i] && i < max)
+	while (lst->next != 0 && address != lst->content)
 	{
-		if (arr[i] == num)
-		{
+		comp = lst->content;
+		if (comp[0] == num)
 			return (0);
-		}
-		i++;
+		lst = lst -> next;
 	}
 	return (1);
 }
@@ -50,16 +48,17 @@ int		valid_num_check(char *num)
 	return (1);
 }
 
-int		confirm_add(char *num, t_list *stack_a, int *num_int)
+int		ft_confirm_add(char *num, t_list **stack_a)
 {
+	int	*num_int;
+
 	if (valid_num_check(num))
 	{
 		num_int = ft_calloc(1, sizeof(int));
 		num_int[0] = ft_atoi(num);
-		ft_lstadd_back(&stack_a, ft_lstnew(num_int));
-		
+		ft_lstadd_back(stack_a, ft_lstnew(num_int));
 	}
 	else
 		return (0);
-	return (ft_unused_check(arr, arr[i], i));
+	return (ft_unused_check(*stack_a, num_int[0], num_int));
 }
