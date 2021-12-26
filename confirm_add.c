@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error_check.c                                      :+:      :+:    :+:   */
+/*   confirm_add.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:30:45 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/20 23:50:33 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/26 01:37:08 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,15 @@ int		valid_num_check(char *num)
 	return (1);
 }
 
-int		confirm_add(char *num, int *arr, int i)
+int		confirm_add(char *num, t_list *stack_a, int *num_int)
 {
 	if (valid_num_check(num))
-		arr[i] = ft_atoi(num);
+	{
+		num_int = ft_calloc(1, sizeof(int));
+		num_int[0] = ft_atoi(num);
+		ft_lstadd_back(&stack_a, ft_lstnew(num_int));
+		
+	}
 	else
 		return (0);
 	return (ft_unused_check(arr, arr[i], i));

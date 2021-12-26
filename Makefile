@@ -6,7 +6,7 @@
 #    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2021/12/20 23:52:16 by emomkus          ###   ########.fr        #
+#    Updated: 2021/12/21 00:17:55 by emomkus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,10 @@ all:
 	test -f $(LIBFT_DIR)libft.a || make re -C $(LIBFT_DIR)
 	gcc -c $(FILES)
 	gcc $(OBJ) -I $(HEADER) -I $(LIBFT_DIR)libft.h $(LIBFT_DIR)libft.a -o $(OUT_NAME)
+	rm $(OBJ)
 re:
 	rm $(OUT_NAME) 
 	test -f $(LIBFT_DIR)libft.a || make re -C $(LIBFT_DIR)
 	gcc -c $(FILES)
 	gcc $(OBJ) -I $(HEADER) -I $(LIBFT_DIR)libft.h $(LIBFT_DIR)libft.a -o $(OUT_NAME)
+	rm $(OBJ)
