@@ -6,14 +6,18 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:30:45 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 21:07:59 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/26 22:04:17 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-	functions to check errors 
+	Functions to check errors, before adding to back of list.
+	Integer pointer address temporary stores integer. Address then is stored
+	into list if integer is valid.
+	If integer is not number or integer is ussed before ft_confirm_add return
+	zero.
 */
 
 int		ft_unused_check(t_list *lst, int num, int *address)

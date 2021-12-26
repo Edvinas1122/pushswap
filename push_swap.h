@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 21:16:57 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/26 23:56:31 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ int		ft_unused_check(t_list *lst, int num, int *address);
 t_list	**input_handler(int argc, char **argv);
 void	ft_delete(void *num);
 void	ft_terminate(t_list **stack_a);
+void	swap(t_list **lst);
+void	swap_a(t_list **stack_a);
 
 #endif

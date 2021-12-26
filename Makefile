@@ -6,13 +6,13 @@
 #    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2021/12/26 21:34:38 by emomkus          ###   ########.fr        #
+#    Updated: 2021/12/26 22:47:56 by emomkus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #---- Update bellow -----------------------------------------------#
 
-FILES = push_swap.c confirm_add.c input_var.c
+FILES = push_swap.c confirm_add.c input_var.c ft_lst_swap.c
 OBJ = push_swap.o confirm_add.o	input_var.o
 LIBFT_DIR = libft/
 FLAG = -Wall -Wextra -Werror

@@ -6,11 +6,17 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:08:41 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 21:45:36 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/26 22:06:16 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+/*
+	Checks for errors and returns list structure as **stack_a.
+	input_handler itterates trough argv (in line 47) and adds number to list 
+	if string is valid number. Program is terminated if number invalid.
+*/
 
 void	ft_delete(void *num)
 {
@@ -28,7 +34,7 @@ void	ft_terminate(t_list **stack_a)
 
 t_list	**input_handler(int argc, char **argv)
 {
-	t_list	**stack_a = NULL;
+	t_list	**stack_a;
 	int		i;
 
 	i = 1;
