@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 23:56:31 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/28 01:52:30 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,14 +26,38 @@ typedef struct number
 }number;
 
 int		main(int argv, char **args);
-void	ft_putnbr_tr(void *content);
+/*Input value and error handling*/
+void	ft_terminate(t_list **stack_a);
 int		ft_confirm_add(char *num, t_list **stack_a);
 int		valid_num_check(char *num);
 int		ft_unused_check(t_list *lst, int num, int *address);
 t_list	**input_handler(int argc, char **argv);
-void	ft_delete(void *num);
-void	ft_terminate(t_list **stack_a);
+/*Push*/
+void	push(t_list **from, t_list **to);
+void	push_to_b(t_list **stack_a, t_list **stack_b);
+void	push_to_a(t_list **stack_a, t_list **stack_b);
+/*Rotate*/
+void	rotate(t_list **list);
+void	rotate_a(t_list **stack_a);
+void	rotate_b(t_list **stack_b);
+void	rotate_ab(t_list **stack_a, t_list **stack_b);
+void	rotate_rv(t_list **list);
+void	rotate_a_rv(t_list **stack_a);
+void	rotate_b_rv(t_list **stack_b);
+void	rotate_ab_rv(t_list **stack_a, t_list **stack_b);
+/*Swap*/
 void	swap(t_list **lst);
 void	swap_a(t_list **stack_a);
+void	swap_b(t_list **stack_b);
+void	swap_ab(t_list **stack_a, t_list **stack_b);
+/*Print stacks*/
+void	ft_putnbr_tr(void *content);
+void	ft_putnbr_tr2(void *content);
+void	ft_delete(void *num);
+void	ft_ab_lstiter(t_list *lst, t_list *lst2, void (*f)(void *));
+void	ft_b_lstiter(t_list *lst, void (*f)(void *));
+void	ft_putnbr_tr(void *content);
+void	ft_putnbr_tr2(void *content);
+
 
 #endif

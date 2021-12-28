@@ -6,16 +6,15 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 22:19:11 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 23:08:57 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/27 23:48:59 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-	Swaps top elements of a b or both lists list
+*	Swaps top elements of both stacks
 */
-
 void	swap_ab(t_list **stack_a, t_list **stack_b)
 {
 	swap(stack_a);
@@ -23,12 +22,18 @@ void	swap_ab(t_list **stack_a, t_list **stack_b)
 	write(1, "SS\n", 3);
 }
 
+/*
+*	Swaps top elements of b stack
+*/
 void	swap_b(t_list **stack_b)
 {
 	swap(stack_b);
 	write(1, "SB\n", 3);
 }
 
+/*
+*	Swaps top elements of a stack
+*/
 void	swap_a(t_list **stack_a)
 {
 	swap(stack_a);

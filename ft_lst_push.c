@@ -6,24 +6,38 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 22:57:23 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 23:50:32 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/27 23:50:28 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 /*
-	Pushes elements into lists
+*	Pushes top b stack element into top a stack
 */
-
-void	push(t_list **stack_to, t_list **stack_from)
+void	push_to_a(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*tmp;
-	t_list	**tmp2;
+	push(stack_b, stack_a);
+	write(1, "PA\n", 3);
+}
 
-	tmp = *stack_from;
-	ft_lstadd_front(stack_to, tmp);
-	*tmp2 = *stack_from->next;
-	ft_lstdelone(*stack_from);
-	stack_from = tmp2;
+/*
+*	Pushes top a stack element into b stack
+*/
+void	push_to_b(t_list **stack_a, t_list **stack_b)
+{
+	push(stack_a, stack_b);
+	write(1, "PB\n", 3);
+}
+
+void	push(t_list **from, t_list **to)
+{
+	t_list	*from_addr;
+	t_list	*tmp;
+
+	tmp = *to;
+	*to = *from;
+	from_addr = *from;
+	*from = from_addr->next;
+	from_addr->next = tmp;
 }
