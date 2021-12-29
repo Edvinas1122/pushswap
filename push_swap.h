@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/28 01:52:30 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/29 00:10:11 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,9 @@ void	ft_ab_lstiter(t_list *lst, t_list *lst2, void (*f)(void *));
 void	ft_b_lstiter(t_list *lst, void (*f)(void *));
 void	ft_putnbr_tr(void *content);
 void	ft_putnbr_tr2(void *content);
+/*BONUS APP input visualizer*/
+int	check_accend(t_list	**stack_a, t_list **stack_b);
+void	swap_cases(char *buf, t_list **stack_a, t_list **stack_b);
 
 
 #endif
