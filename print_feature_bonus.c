@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 00:20:02 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/28 00:20:27 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/29 02:34:42 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,11 @@ void	ft_b_lstiter(t_list *lst, void (*f)(void *))
 {
 	while (lst->next != 0)
 	{
-		write(1, "     ", 5);
+		write(1, "     ", 2);
 		(*f)(lst->content);
 		lst = lst -> next;
 	}
+	write(1, "     ", 2);
 	(*f)(lst->content);
 }
 
@@ -82,7 +83,7 @@ void	ft_ab_lstiter(t_list *lst, t_list *lst2, void (*f)(void *))
 		}
 		else if (stack_a < stack_b)
 		{
-			write(1, "     ", 1);
+			write(1, "         ", 2);
 			(*f)(lst2->content);
 			write(1, "\n", 1);
 			lst2 = lst2 -> next;
@@ -99,7 +100,7 @@ void	ft_ab_lstiter(t_list *lst, t_list *lst2, void (*f)(void *))
 		}
 	}
 	(*f)(lst->content);
-	write(1, "    ", 1);
+	write(1, "         ", 1);
 	(*f)(lst2->content);
 	write(1, "\n----\n", 6);
 }
