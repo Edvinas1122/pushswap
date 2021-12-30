@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/29 00:10:11 by emomkus          ###   ########.fr       */
+/*   Updated: 2021/12/30 10:39:57 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 #include <stdio.h>
 #include "libft/libft.h"
 
-typedef struct number
+typedef struct s_number
 {
-	int i;
+	int origin_num;
 	int index;
-}number;
+} t_number;
 
 int		main(int argv, char **args);
 /*Input value and error handling*/
@@ -32,6 +32,11 @@ int		ft_confirm_add(char *num, t_list **stack_a);
 int		valid_num_check(char *num);
 int		ft_unused_check(t_list *lst, int num, int *address);
 t_list	**input_handler(int argc, char **argv);
+/*ALGORITHM*/
+/*set index*/
+void		ft_set_indexes(t_list **list, int size);
+void		ft_set_index(t_list *list_address, int *buf);
+t_number	*ft_replace_int(void *num);
 /*Push*/
 void	push(t_list **from, t_list **to);
 void	push_to_b(t_list **stack_a, t_list **stack_b);
@@ -59,7 +64,7 @@ void	ft_b_lstiter(t_list *lst, void (*f)(void *));
 void	ft_putnbr_tr(void *content);
 void	ft_putnbr_tr2(void *content);
 /*BONUS APP input visualizer*/
-int	check_accend(t_list	**stack_a, t_list **stack_b);
+int		check_accend(t_list	**stack_a, t_list **stack_b);
 void	swap_cases(char *buf, t_list **stack_a, t_list **stack_b);
 
 

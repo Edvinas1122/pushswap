@@ -6,7 +6,7 @@
 #    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2021/12/29 00:50:14 by emomkus          ###   ########.fr        #
+#    Updated: 2021/12/30 05:30:58 by emomkus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,8 @@ SORT_FILE = sort_read.c
 MEDIUM_FILES = confirm_add.c input_var.c ft_lst_swap.c ft_lst_push.c \
 			ft_lst_rotate.c ft_lst_rotate_rv.c
 MEDIUM_FILES_DIR = src/medium/
+ALG_FILES = set_index.c
+ALG_FILES_DIR = src/algorithm/
 MONITOR_FILES = print_feature_bonus.c
 OBJ = push_swap.o confirm_add.o	input_var.o
 LIBFT_FILES = libft.h libft.a 
@@ -27,7 +29,8 @@ HEADER = push_swap.h
 #---- Update above ------------------------------------------------#
 
 MEDIUM = $(addprefix $(MEDIUM_FILES_DIR),$(MEDIUM_FILES))#	medium files #
-FILES = $(MAIN_FILE) $(MEDIUM) $(MONITOR_FILES)#				ALL FILES #
+ALG = $(addprefix $(ALG_FILES_DIR),$(ALG_FILES))
+FILES = $(MAIN_FILE) $(MEDIUM) $(ALG) $(MONITOR_FILES)#		ALL FILES #
 FILES2 = $(SORT_FILE) $(MEDIUM) $(MONITOR_FILES)#				ALL FILES #
 LIBFT = $(addprefix $(LIBFT_DIR),$(LIBFT_FILES)) #			LIBFT library #
 OUT_NAME = push_swap # 								program name output #
