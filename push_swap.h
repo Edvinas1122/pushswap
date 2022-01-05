@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/30 10:39:57 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/05 12:20:52 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_list	**input_handler(int argc, char **argv);
 /*ALGORITHM*/
 /*set index*/
 void		ft_set_indexes(t_list **list, int size);
-void		ft_set_index(t_list *list_address, int *buf);
+int			ft_set_index(t_list *list_address, int *buf);
 t_number	*ft_replace_int(void *num);
 /*Push*/
 void	push(t_list **from, t_list **to);

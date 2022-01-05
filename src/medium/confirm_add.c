@@ -6,7 +6,7 @@
 /*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:30:45 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/04 15:14:51 by qduong           ###   ########.fr       */
+/*   Updated: 2022/01/05 11:36:03 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 	zero.
 */
 
+//Huy: What is unused check? why is it returned regardless? return here
+//must be 1 to avoid termination
 int		ft_unused_check(t_list *lst, int num, int *address)
 {
 	int	*comp;
@@ -34,7 +36,7 @@ int		ft_unused_check(t_list *lst, int num, int *address)
 	return (1);
 }
 
-//comment by Huy: Need more checks - duplicate checks and empty string "" check!
+//comment by Huy: Need more checks - duplicate checks(in unused) and empty string and int check "" check!
 
 int		valid_num_check(char *num)
 {

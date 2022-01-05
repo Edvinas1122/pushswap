@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
+#    By: qduong <qduong@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2021/12/30 05:30:58 by emomkus          ###   ########.fr        #
+#    Updated: 2022/01/05 12:00:29 by qduong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ $(OUT_NAME):
 	gcc -g $(FLAG) $(FILES) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME)
 
 re:
-	rm $(OUT_NAME) 
+	rm -f $(OUT_NAME) 
 	test -f $(LIBFT_DIR)libft.a || make rebonus -C $(LIBFT_DIR)
 	gcc -g $(FLAG) $(FILES) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME)
 	
@@ -53,7 +53,7 @@ libup:
 	gcc -g $(FLAG) $(FILES) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME)
 
 sort:
-	test -f $(OUT_NAME_2) || rm $(OUT_NAME_2)
+	test -f $(OUT_NAME_2) || rm -f $(OUT_NAME_2)
 	test -f $(LIBFT_DIR)libft.a || make rebonus -C $(LIBFT_DIR)
 	gcc $(FLAG) $(FILES2) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME_2)
 

@@ -3,14 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
+/*   By: qduong <qduong@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:47 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/30 10:40:35 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/05 11:25:26 by qduong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+//stack b initially calloc with size of t_list *?
+//difference between t_list * and t_list **?
+// 
 
 int	main(int argv, char **args)
 {
