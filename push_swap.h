@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/30 10:39:57 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/11 23:01:28 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,16 @@ int		ft_confirm_add(char *num, t_list **stack_a);
 int		valid_num_check(char *num);
 int		ft_unused_check(t_list *lst, int num, int *address);
 t_list	**input_handler(int argc, char **argv);
+void	ft_check_accend(t_list	**stack_a);
 /*ALGORITHM*/
+void	engine(t_list **stack_a, t_list **stack_b, int num);
+/*Small sort*/
+void	sort_2_3(t_list **stack_a, int num);
+void	sort_3(t_list **stack_a);
+
 /*set index*/
 void		ft_set_indexes(t_list **list, int size);
-void		ft_set_index(t_list *list_address, int *buf);
+int			ft_set_index(t_list *list_address, int *buf);
 t_number	*ft_replace_int(void *num);
 /*Push*/
 void	push(t_list **from, t_list **to);
@@ -63,6 +69,8 @@ void	ft_ab_lstiter(t_list *lst, t_list *lst2, void (*f)(void *));
 void	ft_b_lstiter(t_list *lst, void (*f)(void *));
 void	ft_putnbr_tr(void *content);
 void	ft_putnbr_tr2(void *content);
+void	ft_simple_lister(t_list *stack_a, void (*f)(void *));
+void	ft_putnbr_num(void *content);
 /*BONUS APP input visualizer*/
 int		check_accend(t_list	**stack_a, t_list **stack_b);
 void	swap_cases(char *buf, t_list **stack_a, t_list **stack_b);

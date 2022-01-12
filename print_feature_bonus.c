@@ -6,11 +6,22 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 00:20:02 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/29 02:34:42 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/11 18:48:48 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_putnbr_num(void *content)
+{
+	t_number	*num;
+	int i;
+
+	num = content;
+	i = num->index;
+	ft_putnbr_fd(i, 1);
+	write(1, " ", 1);
+}
 
 /*
 *	Prints into terminal integer pointed by void pointer
@@ -103,4 +114,15 @@ void	ft_ab_lstiter(t_list *lst, t_list *lst2, void (*f)(void *))
 	write(1, "         ", 1);
 	(*f)(lst2->content);
 	write(1, "\n----\n", 6);
+}
+
+void	ft_simple_lister(t_list *lst, void (*f)(void *))
+{
+	while (lst->next != 0)
+	{
+		(*f)(lst->content);
+		lst = lst -> next;
+	}
+	(*f)(lst->content);
+	write(1, "\n", 1);
 }

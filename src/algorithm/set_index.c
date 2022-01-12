@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 03:07:25 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/30 11:02:53 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/11 19:20:23 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,43 +19,59 @@ t_number	*ft_replace_int(void *num)
 
 	nums = malloc(sizeof(t_number));
 	nums->origin_num = *(int *)num;
-	ft_putnbr_fd(nums->origin_num, 1);
 	nums->index = i;
 	i++;
 	free(num);
 	return (nums);
 }
 
-void	ft_set_index(t_list *list_address,int *buf)
+int	return_first_pointer(t_list **tmp_lowest, t_list **list_address,
+						int i, int *buf)
+{
+	t_list	*lowest;
+	t_list	*address;
+
+	lowest = *tmp_lowest;
+	address = *list_address;
+	while (!lowest)
+	{
+		if (buf[i] == 0)
+			lowest = address;
+		else
+		{
+			address = address->next;
+			i++;
+		}
+	}
+	*tmp_lowest = lowest;
+	*list_address = address;
+	return (i);
+}
+
+int	ft_set_index(t_list *list_address, int *buf)
 {
 	t_list	*tmp_lowest;
-	int		*tmp_p;
 	int		i;
+	int		x;
 
-	i = 0;
-	while (list_address->next != 0 && buf[i] == 1)
-	{
-		list_address = list_address->next;
-		i++;
-	}
-	tmp_p = list_address->content;
-	tmp_lowest = list_address;
-	buf[i] = 1;
+	tmp_lowest = NULL;
+	i = return_first_pointer(&tmp_lowest, &list_address, 0, buf);
+	x = i;
 	while (list_address->next != 0)
 	{
 		list_address = list_address->next;
-		if (buf[i] != 1)
+		if (buf[i + 1] != 1)
 		{
-			if (*tmp_p > *(int *)(list_address->content))
+			if (*(int *)tmp_lowest->content > *(int *)(list_address->content))
 			{
-				tmp_p = list_address->content;
 				tmp_lowest = list_address;
-				buf[i] = 1;
+				x = i + 1;
 			}
 		}
 		i++;
 	}
 	tmp_lowest->content = ft_replace_int(tmp_lowest->content);
+	return(x);
 }
 
 void	ft_set_indexes(t_list **list, int size)
@@ -71,7 +87,7 @@ void	ft_set_indexes(t_list **list, int size)
 	}	
 	while (size > 0)
 	{
-		ft_set_index(*list, buf);
+		buf[ft_set_index(*list, buf)] = 1;
 		size--;
 	}
 }
