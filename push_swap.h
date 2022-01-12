@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/11 23:01:28 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/12 19:49:56 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,14 @@ int		ft_unused_check(t_list *lst, int num, int *address);
 t_list	**input_handler(int argc, char **argv);
 void	ft_check_accend(t_list	**stack_a);
 /*ALGORITHM*/
+int		bitlength(int num);
 void	engine(t_list **stack_a, t_list **stack_b, int num);
+void	ft_radix(t_list **a, t_list **b, int size);
 /*Small sort*/
-void	sort_2_3(t_list **stack_a, int num);
+int		small_sorted(t_list *lst);
 void	sort_3(t_list **stack_a);
-
+void	sort_4(t_list **stack_a, t_list **stack_b);
+void	sort_5(t_list **stack_a, t_list **stack_b);
 /*set index*/
 void		ft_set_indexes(t_list **list, int size);
 int			ft_set_index(t_list *list_address, int *buf);

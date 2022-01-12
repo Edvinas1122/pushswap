@@ -6,11 +6,11 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:08:41 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/11 23:01:38 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/12 21:12:19 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
 /*
 	Checks for errors and returns list structure as **stack_a.

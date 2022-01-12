@@ -6,20 +6,20 @@
 #    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2022/01/12 03:24:57 by emomkus          ###   ########.fr        #
+#    Updated: 2022/01/12 21:11:19 by emomkus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #---- Update bellow -----------------------------------------------#
 
 MAIN_FILE = push_swap.c
-SORT_FILE = sort_read.c
-BRUTE_FILE = brute_force.c
+SORT_FILE = src/bonus/sort_read.c
+BRUTE_FILE = src/bonus/brute_force.c
 MEDIUM_FILES = confirm_add.c input_var.c ft_lst_swap.c ft_lst_push.c \
 			ft_lst_rotate.c ft_lst_rotate_rv.c
 MEDIUM_FILES_DIR = src/medium/
-MEDIUM_BRUTE_FILES_DIR = src/medium_brute/
-ALG_FILES = set_index.c
+MEDIUM_BRUTE_FILES_DIR = src/bonus/medium_brute/
+ALG_FILES = set_index.c utils.c radix.c
 ALG_FILES_DIR = src/algorithm/
 MONITOR_FILES = print_feature_bonus.c
 OBJ = push_swap.o confirm_add.o	input_var.o

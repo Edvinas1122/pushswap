@@ -6,11 +6,11 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 00:10:32 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/12 03:24:30 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/12 21:11:33 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int		protect_cases(char *buf, t_list **stack_a, t_list **stack_b)
 {
@@ -126,6 +126,37 @@ int		check_accend(t_list	**stack_a, t_list **stack_b)
 	return (cond);
 }
 
+// int	brute_force(t_list **stack_a, t_list **stack_b, char **comands, int i, int argv)
+// {
+// 	// int			ct = 0;
+// 	static int	arr[20];
+// 	static int	check = 1;
+
+// 	if (check != argv)
+// 	{
+// 		ft_bzero(arr, 4 * 20);
+// 		check = argv;
+// 	}
+// 	while (check_accend(stack_a, stack_b) && i < argv && arr[i] < 11)
+// 	{
+// 		if (protect_cases(comands[arr[i]], stack_a, stack_b))
+// 		{
+// 			swap_cases(comands[arr[i]], stack_a, stack_b);
+// 			brute_force(stack_a, stack_b, comands, i + 1, argv);
+// 			if (!check_accend(stack_a, stack_b))
+// 				break;
+// 			swap_cases_rev(comands[arr[i]], stack_a, stack_b);
+// 		}
+// 		arr[i]++;
+// 	}
+// 	if (!check_accend(stack_a, stack_b))
+// 	{
+// 		write(1, comands[arr[i]], 3);
+// 		write(1, " ", 1);
+// 	}
+// 	return (arr[i]);
+// }
+
 int	brute_force(t_list **stack_a, t_list **stack_b, char **comands, int i, int argv)
 {
 	int		ct = 0;
@@ -157,6 +188,7 @@ int		main(int argv, char **args)
 	int		i = 0;
 	int		ct = 11;
 	int		arg = 1;
+	int		x;
 	// int		arr[10];
 
     char *comands[12] = { "SA",
@@ -174,11 +206,17 @@ int		main(int argv, char **args)
 
 	stack_a = input_handler(argv, args);
 	stack_b = ft_calloc(1, sizeof(t_list *));
-	while (ct == 11)
+	x = 0;
+	while (x < 10)
 	{
 		ct = brute_force(stack_a, stack_b, comands, i, arg);
-		arg++;
-		// write (1, "\n", 1);
+		if (ct != 11)
+		{
+			stack_a = input_handler(argv, args);
+			write(1, "\n", 1);
+			x++;
+		}else
+			arg++;
 	}
 	return 1;
 }

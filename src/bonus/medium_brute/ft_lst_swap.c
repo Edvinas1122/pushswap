@@ -6,11 +6,11 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 22:19:11 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/12 00:50:17 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/12 21:12:13 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
 /*
 *	Swaps top elements of both stacks

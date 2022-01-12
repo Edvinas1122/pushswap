@@ -6,11 +6,11 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 00:20:02 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/11 18:48:48 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/12 21:11:41 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 void	ft_putnbr_num(void *content)
 {

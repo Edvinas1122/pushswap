@@ -6,11 +6,11 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 22:57:23 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/12 00:49:50 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/12 21:11:59 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../../../push_swap.h"
 
 /*
 *	Pushes top b stack element into top a stack

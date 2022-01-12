@@ -6,11 +6,11 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 21:51:07 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/29 02:00:54 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/12 21:11:45 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
 int		protect_cases(char *buf, t_list **stack_a, t_list **stack_b)
 {
