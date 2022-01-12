@@ -6,7 +6,7 @@
 #    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2022/01/12 21:11:19 by emomkus          ###   ########.fr        #
+#    Updated: 2022/01/12 21:34:04 by emomkus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ MEDIUM_FILES_DIR = src/medium/
 MEDIUM_BRUTE_FILES_DIR = src/bonus/medium_brute/
 ALG_FILES = set_index.c utils.c radix.c
 ALG_FILES_DIR = src/algorithm/
-MONITOR_FILES = print_feature_bonus.c
+MONITOR_FILES = src/bonus/print_feature_bonus.c
 OBJ = push_swap.o confirm_add.o	input_var.o
 LIBFT_FILES = libft.h libft.a 
 LIBFT_DIR = libft/
@@ -40,6 +40,12 @@ LIBFT = $(addprefix $(LIBFT_DIR),$(LIBFT_FILES)) #			LIBFT library #
 OUT_NAME = push_swap # 								program name output #
 OUT_NAME_2 = stack_sort_game
 OUT_NAME_3 = brute_force
+#-----move-----
+BIN = bin/
+MOVE2 = mv $(OUT_NAME_2) $(BIN)
+MOVE3 = mv $(OUT_NAME_3) $(BIN)
+#-----move-----
+
 
 all: $(OUT_NAME)
 
@@ -61,10 +67,14 @@ sort:
 	test -f $(OUT_NAME_2) || rm $(OUT_NAME_2)
 	test -f $(LIBFT_DIR)libft.a || make rebonus -C $(LIBFT_DIR)
 	gcc $(FLAG) $(FILES2) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME_2)
+	test $(OUT_NAME_3) || rm $(BIN)$(OUT_NAME_2)
+	$(MOVE2)
 
 brute:
 	test $(OUT_NAME_3) || rm $(OUT_NAME_3)
 	test -f $(LIBFT_DIR)libft.a || make rebonus -C $(LIBFT_DIR)
 	gcc -g $(FLAG) $(FILES3) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME_3)
+	test $(OUT_NAME_3) || rm $(BIN)$(OUT_NAME_3)
+	$(MOVE3)
 	
 .PHONY:			all re libup
