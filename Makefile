@@ -6,75 +6,77 @@
 #    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2022/01/12 21:36:48 by emomkus          ###   ########.fr        #
+#    Updated: 2022/01/13 17:12:39 by emomkus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#---- Update bellow -----------------------------------------------#
-
+BIN = bin/ #OUTPUT DIR#
+#---- Main program -------------------------------------------------#
 MAIN_FILE = push_swap.c
-SORT_FILE = src/bonus/sort_read.c
-BRUTE_FILE = src/bonus/brute_force.c
 MEDIUM_FILES = confirm_add.c input_var.c ft_lst_swap.c ft_lst_push.c \
 			ft_lst_rotate.c ft_lst_rotate_rv.c
 MEDIUM_FILES_DIR = src/medium/
-MEDIUM_BRUTE_FILES_DIR = src/bonus/medium_brute/
+MEDIUM = $(addprefix $(MEDIUM_FILES_DIR),$(MEDIUM_FILES))
 ALG_FILES = set_index.c utils.c radix.c
 ALG_FILES_DIR = src/algorithm/
-MONITOR_FILES = src/bonus/print_feature_bonus.c
-OBJ = push_swap.o confirm_add.o	input_var.o
-LIBFT_FILES = libft.h libft.a 
-LIBFT_DIR = libft/
+ALG = $(addprefix $(ALG_FILES_DIR),$(ALG_FILES))
 FLAG = -Wall -Wextra -Werror
-HEADER = push_swap.h
-
+COMPILE_FILES = $(MAIN_FILE) $(MEDIUM) $(ALG)
+#------Libraries--------------------
+LIBFT_FILES = libft.h libft.a
+LIBFT_DIR = libft/
+LIBFT = $(addprefix $(LIBFT_DIR),$(LIBFT_FILES))
+#------Other programs------------------
+SORT_FILE = src/bonus/sort_read.c
+BRUTE_FILE = src/bonus/brute_force.c
+MEDIUM_BRUTE_FILES_DIR = src/bonus/medium_brute/
+BRUTE = $(addprefix $(MEDIUM_BRUTE_FILES_DIR),$(MEDIUM_FILES))
+MONITOR_FILES = src/bonus/print_feature_bonus.c
+FILES_SORT = $(SORT_FILE) $(MEDIUM) $(MONITOR_FILES)
+FILES_BRUTE = $(BRUTE_FILE) $(BRUTE)
 #---- Update above ------------------------------------------------#
 
-MEDIUM = $(addprefix $(MEDIUM_FILES_DIR),$(MEDIUM_FILES))#	medium files #
-ALG = $(addprefix $(ALG_FILES_DIR),$(ALG_FILES))
-BRUTE = $(addprefix $(MEDIUM_BRUTE_FILES_DIR),$(MEDIUM_FILES))
-FILES = $(MAIN_FILE) $(MEDIUM) $(ALG) #		ALL FILES #
-FILES2 = $(SORT_FILE) $(MEDIUM) $(MONITOR_FILES)#				ALL FILES #
-FILES3 = $(BRUTE_FILE) $(BRUTE)
-LIBFT = $(addprefix $(LIBFT_DIR),$(LIBFT_FILES)) #			LIBFT library #
-OUT_NAME = push_swap # 								program name output #
-OUT_NAME_2 = stack_sort_game
-OUT_NAME_3 = brute_force
-#-----move-----
-BIN = bin/
-MOVE2 = mv $(OUT_NAME_2) $(BIN)
-MOVE3 = mv $(OUT_NAME_3) $(BIN)
-#-----move-----
-
+OS:= $(shell uname -s)
+ifeq ($(OS),Darwin)
+	OUT_NAME = push_swap_mac
+	OUT_NAME_SORT = stack_sort_game_mac
+	OUT_NAME_BRUTE = brute_force_mac
+	CFLAG = -I
+else
+	OUT_NAME = push_swap_Linux
+	OUT_NAME_SORT = stack_sort_game_Linux
+	OUT_NAME_BRUTE = brute_force_Linux
+endif
 
 all: $(OUT_NAME)
 
 $(OUT_NAME):
-	test -f $(LIBFT_DIR)libft.a || make rebonus -C $(LIBFT_DIR)
-	gcc -g $(FLAG) $(FILES) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME)
-
-re:
-	rm $(OUT_NAME) 
-	test -f $(LIBFT_DIR)libft.a || make rebonus -C $(LIBFT_DIR)
-	gcc -g $(FLAG) $(FILES) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME)
+	make bonus -C $(LIBFT_DIR)
+	gcc -g $(FLAG) $(COMPILE_FILES) $(CFLAG) $(LIBFT) -o $(OUT_NAME)
+	mv $(OUT_NAME) $(BIN)
 	
-libup:
-	make rebonus -C $(LIBFT_DIR)
-	make clean -C $(LIBFT_DIR)
-	gcc -g $(FLAG) $(FILES) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME)
+re:
+	rm $(OUT_NAME)
+	make bonus -C $(LIBFT_DIR)
+	gcc -g $(FLAG) $(COMPILE_FILES) $(CFLAG) $(LIBFT) -o $(OUT_NAME)
+	mv $(OUT_NAME) $(BIN)
 
 sort:
-	test -f $(OUT_NAME_2) || rm $(OUT_NAME_2)
-	test -f $(LIBFT_DIR)libft.a || make rebonus -C $(LIBFT_DIR)
-	gcc $(FLAG) $(FILES2) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME_2)
-	test $(OUT_NAME_3) || rm $(BIN)$(OUT_NAME_2)
-	$(MOVE2)
+	make bonus -C $(LIBFT_DIR)
+	gcc $(FLAG) $(FILES_SORT) $(CFLAG) $(LIBFT) -o $(OUT_NAME_SORT)
+	test $(OUT_NAME_BRUTE) || rm $(BIN)$(OUT_NAME_SORT)
+	mv $(OUT_NAME_SORT) $(BIN)
 
 brute:
-	test $(OUT_NAME_3) || rm $(OUT_NAME_3)
-	test -f $(LIBFT_DIR)libft.a || make rebonus -C $(LIBFT_DIR)
-	gcc -g $(FLAG) $(FILES3) -I $(HEADER) -I $(LIBFT) -o $(OUT_NAME_3)
-	test $(OUT_NAME_3) || rm $(BIN)$(OUT_NAME_3)
-	$(MOVE3)
-	
+	make bonus -C $(LIBFT_DIR)
+	gcc -g $(FLAG) $(FILES_BRUTE) $(CFLAG) $(LIBFT) -o $(OUT_NAME_BRUTE)
+	test $(OUT_NAME_BRUTE) || rm $(BIN)$(OUT_NAME_BRUTE)
+	mv $(OUT_NAME_BRUTE) $(BIN)
+
+clean:
+	make clean -C $(LIBFT_DIR)
+
+fclean:
+	make fclean -C $(LIBFT_DIR)
+
 .PHONY:			all re libup
