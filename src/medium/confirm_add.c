@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:30:45 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/14 22:57:47 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/15 00:20:09 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	valid_num_check(char *num)
 		i++;
 	while (num[i])
 	{
-		if (!ft_isdigit(num[i]))
+		if (!ft_isdigit(num[i]) || i > 11)
 		{
 			return (0);
 		}
@@ -54,12 +54,16 @@ int	valid_num_check(char *num)
 
 int	ft_confirm_add(char *num, t_list **stack_a)
 {
-	int	*num_int;
+	int			*num_int;
+	long int	lnum;
 
 	if (valid_num_check(num))
 	{
+		lnum = ft_atol(num);
+		if (lnum  > 2147483647 || lnum  < -2147483648)
+			return (0);
 		num_int = ft_calloc(1, sizeof(int));
-		num_int[0] = ft_atoi(num);
+		num_int[0] = (int)lnum;
 		ft_lstadd_back(stack_a, ft_lstnew(num_int));
 	}
 	else
