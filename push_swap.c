@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:47 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/13 16:33:13 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/14 21:40:59 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,20 @@ void	engine(t_list **stack_a, t_list **stack_b, int num)
 	else if (num == 5)
 		sort_5(stack_a, stack_b);
 	else
-		ft_radix(stack_a, stack_b, num);
+		ft_radix(stack_a, stack_b, num - 1);
 }
 
-int		main(int argv, char **args)
+int		main(int argc, char **argv)
 {
 	
 	t_list	**stack_a;
 	t_list	**stack_b;
 
-	stack_a = input_handler(argv, args);
+	stack_a = input_handler(argc, argv);
 	stack_b = ft_calloc(1, sizeof(t_list *));
-	ft_set_indexes(stack_a, ft_lstsize(*stack_a));
-	// ft_simple_lister(*stack_a, ft_putnbr_num); // displaying indexes
-	engine(stack_a, stack_b, argv - 1);
+	ft_set_indexes(stack_a, argc - 1);
+	ft_ab_lstiter(*stack_a, *stack_b, ft_putnbr_bin);
+	engine(stack_a, stack_b, argc - 1);
 
 	return 1;
 }

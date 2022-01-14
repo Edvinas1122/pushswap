@@ -6,11 +6,31 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/28 00:20:02 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/12 21:11:41 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/14 21:38:37 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+
+void	ft_putnbr_bin(void *content)
+{
+	t_number	*num;
+	int i;
+	int	y;
+
+	y = 7;
+	num = content;
+	i = num->index;
+	while (y != -1)
+	{
+		if (((i >> y) & 1) == 1)
+			write(1, "1", 1);
+		else
+			write(1, "0", 1);
+		y--;
+	}
+	write(1, " ", 1);
+}	
 
 void	ft_putnbr_num(void *content)
 {
@@ -34,6 +54,13 @@ void	ft_putnbr_tr2(void *content)
 	ft_putnbr_fd(num[0], 1);
 }
 
+void	ft_putnbr_tr3(void *content)
+{
+	t_number	*num;
+
+	num = content;
+	ft_putnbr_fd(num->index, 1);
+}
 /*
 *	Prints into terminal integer pointed by void pointer with newline
 */
@@ -71,14 +98,14 @@ void	ft_ab_lstiter(t_list *lst, t_list *lst2, void (*f)(void *))
 	if (stack_b == 0)
 	{
 		write(1, "\n", 1);
-		ft_lstiter(lst, ft_putnbr_tr);
+		ft_lstiter(lst, ft_putnbr_bin);
 		write(1, "----\n", 5);
 		return;
 	}
 	if (stack_a == 0)
 	{
 		write(1, "\n", 1);
-		ft_b_lstiter(lst2, ft_putnbr_tr);
+		ft_b_lstiter(lst2, ft_putnbr_bin);
 		write(1, "----\n", 5);
 		return;
 	}

@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/13 16:31:24 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/14 21:32:56 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "libft/libft.h"
+#include "GNL/get_next_line.h"
+
+
+
 
 typedef struct s_number
 {
@@ -64,6 +68,7 @@ void	swap_a(t_list **stack_a);
 void	swap_b(t_list **stack_b);
 void	swap_ab(t_list **stack_a, t_list **stack_b);
 /*Print stacks*/
+void	ft_putnbr_bin(void *content);
 void	ft_putnbr_tr(void *content);
 void	ft_putnbr_tr2(void *content);
 void	ft_delete(void *num);
@@ -73,6 +78,7 @@ void	ft_putnbr_tr(void *content);
 void	ft_putnbr_tr2(void *content);
 void	ft_simple_lister(t_list *stack_a, void (*f)(void *));
 void	ft_putnbr_num(void *content);
+void	ft_putnbr_tr3(void *content);
 /*BONUS APP input visualizer*/
 int		check_accend(t_list	**stack_a, t_list **stack_b);
 void	swap_cases(char *buf, t_list **stack_a, t_list **stack_b);
