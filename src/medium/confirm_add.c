@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:30:45 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/15 00:20:09 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/15 00:23:19 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_confirm_add(char *num, t_list **stack_a)
 	if (valid_num_check(num))
 	{
 		lnum = ft_atol(num);
-		if (lnum  > 2147483647 || lnum  < -2147483648)
+		if (lnum > 2147483647 || lnum < -2147483648)
 			return (0);
 		num_int = ft_calloc(1, sizeof(int));
 		num_int[0] = (int)lnum;
