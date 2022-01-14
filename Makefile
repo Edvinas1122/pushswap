@@ -6,7 +6,7 @@
 #    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2022/01/14 23:33:30 by emomkus          ###   ########.fr        #
+#    Updated: 2022/01/14 23:34:31 by emomkus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ FLAG = -Wall -Wextra -Werror
 COMPILE_FILES = $(MAIN_FILE) $(MEDIUM) $(ALG)
 #------Libraries--------------------
 LIBFT_FILES = libft.h libft.a
-LIBFT_DIR = libft/
+LIBFT_DIR = src/libft/
 LIBFT = $(addprefix $(LIBFT_DIR),$(LIBFT_FILES))
 #---- Update above ------------------------------------------------#
 
