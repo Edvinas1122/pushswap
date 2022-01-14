@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/30 03:07:25 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/11 19:20:23 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/13 20:58:36 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_number	*ft_replace_int(void *num)
 	return (nums);
 }
 
-int	return_first_pointer(t_list **tmp_lowest, t_list **list_address,
+int			return_first_pointer(t_list **tmp_lowest, t_list **list_address,
 						int i, int *buf)
 {
 	t_list	*lowest;
@@ -48,7 +48,7 @@ int	return_first_pointer(t_list **tmp_lowest, t_list **list_address,
 	return (i);
 }
 
-int	ft_set_index(t_list *list_address, int *buf)
+int			ft_set_index(t_list *list_address, int *buf)
 {
 	t_list	*tmp_lowest;
 	int		i;
@@ -74,7 +74,7 @@ int	ft_set_index(t_list *list_address, int *buf)
 	return(x);
 }
 
-void	ft_set_indexes(t_list **list, int size)
+void		ft_set_indexes(t_list **list, int size)
 {
 	int	buf[size + 1];
 	int	i;

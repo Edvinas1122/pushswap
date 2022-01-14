@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 19:03:50 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/12 19:11:13 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/13 17:28:43 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	ft_radix(t_list **stack_a, t_list **stack_b, int size)
 		{
 			cur = ((t_number *)(*stack_a)->content)->index;
 			if (((cur >> i) & 1) == 1)
-				rotate(stack_a);
+				rotate_a(stack_a);
 			else
 				push_to_b(stack_a, stack_b);
 			j++;

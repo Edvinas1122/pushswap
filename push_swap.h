@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/02 14:51:51 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/13 16:31:24 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/13 19:51:50 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include "libft/libft.h"
+#include "GNL/get_next_line.h"
+
+
+
 
 typedef struct s_number
 {
