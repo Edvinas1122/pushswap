@@ -6,7 +6,7 @@
 #    By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/29 00:00:30 by emomkus           #+#    #+#              #
-#    Updated: 2022/01/15 12:29:45 by emomkus          ###   ########.fr        #
+#    Updated: 2022/01/15 13:25:27 by emomkus          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ $(OUT_NAME):
 re:
 	rm $(OUT_NAME)
 	make bonus -C $(LIBFT_DIR)
-	gcc $(FLAG) $(COMPILE_FILES) $(CFLAG) $(LIBFT) -o $(OUT_NAME)
+	gcc -g $(FLAG) $(COMPILE_FILES) $(CFLAG) $(LIBFT) -o $(OUT_NAME)
 
 clean:
 	make clean -C $(LIBFT_DIR)

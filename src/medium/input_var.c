@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:08:41 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/15 12:49:18 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/15 13:36:04 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,12 @@ void	ft_check_accend(t_list	**stack_a)
 	t_list	*lst;
 	int		kill;
 
-	kill = 0;
+	kill = 1;
 	lst = *stack_a;
 	while (lst->next != 0)
 	{
-		if ((int *)(lst)->content > (int *)(lst->next)->content)
-			kill = 1;
+		if (*(int *)(lst)->content > *(int *)(lst->next)->content)
+			kill = 0;
 		lst = lst -> next;
 	}
 	if (kill)
