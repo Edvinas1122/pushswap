@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:30:45 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/15 00:23:19 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/15 12:43:29 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,7 @@ int	valid_num_check(char *num)
 	while (num[i])
 	{
 		if (!ft_isdigit(num[i]) || i > 11)
-		{
 			return (0);
-		}
 		i++;
 	}
 	return (1);

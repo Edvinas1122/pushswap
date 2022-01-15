@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 19:06:43 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/14 22:57:08 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/15 12:54:57 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	sort_5(t_list **stack_a, t_list **stack_b)
 {
 	while (((t_number *)(*stack_a)->content)->index != 0)
 	{
-		if (((t_number *)(*stack_a)->content)->index == 0)
+		if (((t_number *)(*stack_a)->next->content)->index == 0)
 			rotate_a(stack_a);
 		else
 			rotate_a_rv(stack_a);

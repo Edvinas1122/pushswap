@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:08:41 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/14 23:29:23 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/15 12:49:18 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_terminate(t_list **stack_a)
 	if (*stack_a)
 		ft_lstclear(stack_a, ft_delete);
 	free(stack_a);
-	write(1, "Error", 5);
+	write(1, "Error\n", 6);
 	exit (0);
 }
 
@@ -61,7 +61,7 @@ t_list	**input_handler(int argc, char **argv)
 	i = 1;
 	if (argc <= 1)
 	{
-		write(1, "Error", 5);
+		write(1, "Error\n", 6);
 		exit (0);
 	}
 	stack_a = malloc(sizeof(t_list *));
