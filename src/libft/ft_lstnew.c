@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/25 22:21:55 by emomkus           #+#    #+#             */
-/*   Updated: 2021/12/26 21:25:08 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/17 14:48:42 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*new_element;
 
-	new_element = malloc(sizeof(t_list *));
+	new_element = malloc(sizeof(t_list));
 	if (!new_element)
 		return (NULL);
 	new_element->content = content;
-	new_element->next = 0;
+	new_element->next = NULL;
 	return (new_element);
 }

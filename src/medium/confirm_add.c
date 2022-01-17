@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/07 17:30:45 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/15 12:43:29 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/17 14:42:54 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,16 @@
 
 int	ft_unused_check(t_list *lst, int num, int *address)
 {
-	int	*comp;
+	int		*comp;
+	t_list	*tmp;
 
-	while (lst->next != 0 && address != lst->content)
+	tmp = lst;
+	while (address != tmp->content)
 	{
-		comp = lst->content;
+		comp = tmp->content;
 		if (comp[0] == num)
 			return (0);
-		lst = lst -> next;
+		tmp = tmp->next;
 	}
 	return (1);
 }
@@ -61,7 +63,7 @@ int	ft_confirm_add(char *num, t_list **stack_a)
 		if (lnum > 2147483647 || lnum < -2147483648)
 			return (0);
 		num_int = ft_calloc(1, sizeof(int));
-		num_int[0] = (int)lnum;
+		*num_int = (int)lnum;
 		ft_lstadd_back(stack_a, ft_lstnew(num_int));
 	}
 	else

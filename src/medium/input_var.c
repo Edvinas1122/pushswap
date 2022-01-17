@@ -6,7 +6,7 @@
 /*   By: emomkus <emomkus@student.42wolfsburg.de    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/20 21:08:41 by emomkus           #+#    #+#             */
-/*   Updated: 2022/01/15 13:36:04 by emomkus          ###   ########.fr       */
+/*   Updated: 2022/01/15 14:28:53 by emomkus          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,11 @@ void	ft_check_accend(t_list	**stack_a)
 
 	kill = 1;
 	lst = *stack_a;
+	if (lst == NULL)
+	{
+		free(stack_a);
+		exit (0);
+	}
 	while (lst->next != 0)
 	{
 		if (*(int *)(lst)->content > *(int *)(lst->next)->content)
@@ -64,7 +69,7 @@ t_list	**input_handler(int argc, char **argv)
 		write(1, "Error\n", 6);
 		exit (0);
 	}
-	stack_a = malloc(sizeof(t_list *));
+	stack_a = ft_calloc(1, sizeof(t_list *));
 	while (argv[i])
 	{
 		if (ft_confirm_add(argv[i], stack_a))
